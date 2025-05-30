@@ -10,5 +10,5 @@ function assert(condition, msg) {
 }
 const client = new client_1.default();
 assert(typeof client.spot.getMarketSummary === 'function');
-assert(typeof client.futures === 'object');
+assert(typeof client.futures.getMarketSummary === 'function');
 console.log('SDK structure checks passed.');

@@ -6,5 +6,5 @@ function assert(condition: boolean, msg?: string) {
 
 const client = new BitqikClient();
 assert(typeof client.spot.getMarketSummary === 'function');
-assert(typeof client.futures === 'object');
+assert(typeof client.futures.getMarketSummary === 'function');
 console.log('SDK structure checks passed.');
