@@ -39,6 +39,7 @@ All compiled files are emitted to `dist/` when running `npm run build`.
 ## Documentation
 
 Detailed usage for every Spot endpoint is available in [Spot API Usage](./spot-api.md).
+Documentation for the Futures module can be found in [Futures API Usage](./futures-api.md).
 
 ## Building
 
