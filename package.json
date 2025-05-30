@@ -1,0 +1,13 @@
+{
+  "name": "bitqik-client",
+  "version": "1.0.0",
+  "description": "Javascript package connect to Bitqik exchange",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/bitqikClient.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
