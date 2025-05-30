@@ -4,9 +4,11 @@ import {
   ChartingResponse,
   PriceResponse,
   OrderBookGroupResponse,
+  OrderBookResponse,
   TradeResponse,
   TimeResponse,
   CreateOrderRequest,
+  AmendOrderRequest,
   OrderResponse,
 } from './models';
 
@@ -31,6 +33,12 @@ export class SpotApi extends BaseClient {
     return this.request('GET', '/api/v3.2/orderbook', params);
   }
 
+  getOrderbookL2(symbol: string, depth?: number): Promise<OrderBookResponse> {
+    const params: any = { symbol };
+    if (depth !== undefined) params.depth = depth;
+    return this.request('GET', '/api/v3.2/orderbook/L2', params);
+  }
+
   getTrades(symbol: string, options: { startTime?: number; endTime?: number; count?: number } = {}): Promise<TradeResponse> {
     return this.request('GET', '/api/v3.2/trades', { symbol, ...options });
   }
@@ -41,6 +49,18 @@ export class SpotApi extends BaseClient {
 
   createOrder(req: CreateOrderRequest): Promise<OrderResponse> {
     return this.request('POST', '/api/v3.2/order', req, true);
+  }
+
+  amendOrder(req: AmendOrderRequest): Promise<OrderResponse> {
+    return this.request('PUT', '/api/v3.2/order', req, true);
+  }
+
+  createPegOrder(req: CreateOrderRequest): Promise<OrderResponse> {
+    return this.request('POST', '/api/v3.2/order/peg', req, true);
+  }
+
+  cancelAllAfter(timeout: number): Promise<void> {
+    return this.request('POST', '/api/v3.2/order/cancelAllAfter', { timeout }, true);
   }
 
   cancelOrder(symbol: string, orderID?: string, clOrderID?: string): Promise<OrderResponse> {

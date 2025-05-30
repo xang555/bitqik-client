@@ -46,6 +46,13 @@ export interface OrderBookGroupResponse {
   timestamp: number;
 }
 
+export interface OrderBookResponse {
+  symbol: string;
+  buyQuote: OrderBookQuote[];
+  timestamp: number;
+  depth: number;
+}
+
 export interface TradeItem {
   price: number;
   size: number;
@@ -76,6 +83,18 @@ export interface CreateOrderRequest {
   clOrderID?: string;
   stealth?: number;
   deviation?: number;
+}
+
+export interface AmendOrderRequest {
+  symbol: string;
+  orderID?: string;
+  clOrderID?: string;
+  type: string;
+  value?: number;
+  slide?: boolean;
+  orderPrice?: number;
+  orderSize?: number;
+  triggerPrice?: number;
 }
 
 export interface OrderInfo {
