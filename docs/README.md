@@ -1,12 +1,10 @@
 # Bitqik Client SDK
 
-This SDK provides basic access to Bitqik exchange APIs for Spot trading.
-Futures, OTC and Earn modules are included as placeholders for future
-expansion.
+This repository contains a TypeScript client for the Bitqik exchange. The package exposes typed modules for the Spot API and scaffolds for the Futures, OTC and Earn endpoints.
 
 ## Installation
 
-```
+```bash
 npm install bitqik-client
 ```
 
@@ -28,8 +26,23 @@ async function example() {
 example();
 ```
 
+## Project structure
+
+The code is organised into feature modules under `src/`:
+
+- `core` – shared HTTP logic and request signing.
+- `spot` – fully implemented Spot trading API.
+- `futures`, `otc`, `earn` – placeholders for future expansion.
+
+All compiled files are emitted to `dist/` when running `npm run build`.
+
+## Documentation
+
+Detailed usage for every Spot endpoint is available in [Spot API Usage](./spot-api.md).
+
 ## Building
 
-```
+```bash
 npm run build
 ```
+
