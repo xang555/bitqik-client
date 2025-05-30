@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "npm run build && node dist/test/bitqikClient.test.js"
+    "test": "npm run build && node dist/test/bitqikClient.test.js",
+    "prepack": "npm run build"
   },
   "keywords": ["bitqik", "exchange", "sdk"],
   "author": "",
