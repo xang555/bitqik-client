@@ -1,0 +1,18 @@
+{
+  "name": "bitqik-client",
+  "version": "1.1.0",
+  "description": "TypeScript SDK for Bitqik exchange",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node dist/test/bitqikClient.test.js"
+  },
+  "keywords": ["bitqik", "exchange", "sdk"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
