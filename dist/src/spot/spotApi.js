@@ -22,6 +22,12 @@ class SpotApi extends baseClient_1.BaseClient {
             params.limit_asks = limit_asks;
         return this.request('GET', '/api/v3.2/orderbook', params);
     }
+    getOrderbookL2(symbol, depth) {
+        const params = { symbol };
+        if (depth !== undefined)
+            params.depth = depth;
+        return this.request('GET', '/api/v3.2/orderbook/L2', params);
+    }
     getTrades(symbol, options = {}) {
         return this.request('GET', '/api/v3.2/trades', { symbol, ...options });
     }
@@ -30,6 +36,15 @@ class SpotApi extends baseClient_1.BaseClient {
     }
     createOrder(req) {
         return this.request('POST', '/api/v3.2/order', req, true);
+    }
+    amendOrder(req) {
+        return this.request('PUT', '/api/v3.2/order', req, true);
+    }
+    createPegOrder(req) {
+        return this.request('POST', '/api/v3.2/order/peg', req, true);
+    }
+    cancelAllAfter(timeout) {
+        return this.request('POST', '/api/v3.2/order/cancelAllAfter', { timeout }, true);
     }
     cancelOrder(symbol, orderID, clOrderID) {
         const params = { symbol };
